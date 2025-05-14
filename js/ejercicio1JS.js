@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   container.appendChild(topImage);
 
-
   const oferta = document.createElement("div");
   oferta.style.padding = "30px 20px";
   oferta.innerHTML = `
@@ -55,7 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
   oferta.appendChild(btnShop);
   container.appendChild(oferta);
 
-
   const inferior = document.createElement("div");
   inferior.style.display = "flex";
   inferior.style.flexWrap = "wrap";
@@ -68,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
   imgHombre.style.backgroundSize = "cover";
   imgHombre.style.backgroundPosition = "center";
   imgHombre.style.height = "300px";
-
 
   const textoDerecha = document.createElement("div");
   textoDerecha.style.flex = "1";
@@ -98,6 +95,76 @@ document.addEventListener("DOMContentLoaded", () => {
   inferior.appendChild(textoDerecha);
 
   container.appendChild(inferior);
+
+  const followContainer = document.createElement("div");
+followContainer.style.padding = "40px 20px";
+
+const followTitle = document.createElement("h2");
+followTitle.innerText = "FOLLOW ALONG WITH US";
+followTitle.style.fontSize = "16px";
+followTitle.style.fontWeight = "bold";
+followTitle.style.marginBottom = "20px";
+followContainer.appendChild(followTitle);
+
+const iconContainer = document.createElement("div");
+iconContainer.style.display = "flex";
+iconContainer.style.justifyContent = "center";
+iconContainer.style.gap = "20px";
+iconContainer.style.marginBottom = "20px";
+
+const socialMedia = [
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/profile.php?id=61550312663978#",
+    icon: "../recursos/imagenes/download.png"
+  },
+  {
+    name: "Instagram",
+    url: "#",
+    icon: "../recursos/imagenes/images (4).jpeg"
+  },
+  {
+    name: "Twitter",
+    url: "#",
+    icon: "../recursos/imagenes/descarga (5).jpeg"
+  }
+];
+
+socialMedia.forEach(media => {
+  const link = document.createElement("a");
+  link.href = media.url;
+  link.title = media.name;
+  link.style.backgroundColor = "#f8a502";
+  link.style.width = "40px";
+  link.style.height = "40px";
+  link.style.borderRadius = "50%";
+  link.style.display = "flex";
+  link.style.alignItems = "center";
+  link.style.justifyContent = "center";
+  link.style.textDecoration = "none";
+
+  const img = document.createElement("img");
+  img.src = media.icon;
+  img.alt = media.name;
+  img.style.width = "20px";
+  img.style.height = "20px";
+
+  link.appendChild(img);
+  iconContainer.appendChild(link);
+});
+
+followContainer.appendChild(iconContainer);
+
+const followText = document.createElement("p");
+followText.innerText =
+  "Lorem ipsum dolor amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.";
+followText.style.color = "#555";
+followText.style.fontSize = "14px";
+followText.style.maxWidth = "400px";
+followText.style.margin = "0 auto";
+followContainer.appendChild(followText);
+
+container.appendChild(followContainer);
 
   body.appendChild(container);
 });
